@@ -1,0 +1,55 @@
+///////////////////////////////////////////////////////////////////
+/// media query
+/// 
+$breakpoint: (
+  sp: 'screen and (max-width: 599px)',
+  lgtab: 'screen and (max-width: 1024px)',
+  smtab: 'screen and (max-width: 768px)',
+  tab: 'screen and (max-width: 999px)',
+  pc: 'screen and (min-width: 1000px)'
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+   @content;
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+/// Unit Change
+/// 
+/// 
+@function pxvw($px) {
+   @return calc((#{$px} / var(--content-width)) * 100vw);
+ }
+ @function minvw($px) {
+   @return min(pxvw($px), calc(#{$px} * 1px) );
+ }
+ @function maxvw($px) {
+   @return max(pxvw($px), calc(#{$px} * 1px) );
+ }
+
+///////////////////////////////////////////////////////////////////
+/// Transition
+/// 
+@mixin hover-opacity() {
+   display: block;
+   transition: opacity .3s ease-out;
+   &:hover {
+     opacity: 0.7;
+   }
+ }
+ @mixin hover-hue($base-color) {
+   transition: background-color .3s ease-out;
+   &:hover {
+     background-color: lighten($base-color, 10%);
+   }
+ }
+
+
+///////////////////////////////////////////////////////////////////
+/// Font Size
+/// 
+@function rem($px) {
+   @return calc((#{$px} / var(--em)) * 1rem);
+}

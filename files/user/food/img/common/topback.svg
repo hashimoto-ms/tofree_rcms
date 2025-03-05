@@ -1,0 +1,26 @@
+<svg id="topback.svg" xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #737373;
+      }
+
+      .cls-2 {
+        font-size: 13px;
+        fill: #fff;
+        text-anchor: middle;
+        font-family: Poppins;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <circle id="楕円形_910" data-name="楕円形 910" class="cls-1" cx="37" cy="37" r="37"/>
+  <text id="PAGE_TOP" data-name="PAGE TOP" class="cls-2" transform="translate(36.777 51.707)">PAGE<tspan dy="14.001">TOP</tspan></text>
+  <path id="三角形_911" data-name="三角形 911" class="cls-3" d="M1338.75,16614.1l15.75-19,14.75,19" transform="translate(-1317 -16579)"/>
+</svg>

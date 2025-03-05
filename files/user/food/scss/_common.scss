@@ -1,0 +1,555 @@
+@use "lib/lib" as l;
+/* ------------------------------------------------------------- */
+/* layout                                                        */
+/* ------------------------------------------------------------- */
+* {
+  --black: #000000;
+  --white: #fff;
+  --gray: #d9d9d9;
+  --red: #ae0003;
+  --blue: #0606f9;
+  --brown: #c7b18a;
+  --brown_thin: #eadfcb;
+  --brown_deep: #81705d;
+  --border-brown: #ac6a00;
+  --border-gray: #cccccc;
+
+  --f_regular: 400;
+  --f_medium: 500;
+  --f_bold: 700;
+  --f_black: 900;
+
+  --em: 16;
+}
+
+.pc {
+  display: block !important;
+
+  @include l.mq(sp) {
+    display: none !important;
+  }
+}
+
+.sp {
+  display: none !important;
+
+  @include l.mq(sp) {
+    display: block !important;
+  }
+}
+
+.tab {
+  display: none;
+
+  @include l.mq(lgtab) {
+    display: block;
+  }
+}
+
+html {
+  overflow-x: hidden;
+  scroll-padding: 105px;
+}
+
+body {
+  font-feature-settings: "palt";
+  font-size: 16px;
+  font-weight: var(--f_regular);
+  color: var(--black);
+  font-family: "Noto Sans JP", sans-serif !important;
+  line-height: 1.5;
+  outline: none;
+  background-color: var(--white) !important;
+  overflow-x: hidden;
+
+  @include l.mq(sp) {
+    min-width: auto;
+    font-size: 3.5vw;
+  }
+
+  &.open {
+    overflow-y: hidden;
+  }
+}
+
+input,
+textarea {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+}
+
+sub {
+  font-size: 60%;
+  vertical-align: super;
+}
+
+.outer {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+}
+
+.inner {
+  width: min(90%, 1000px);
+  margin: 0 auto;
+
+  &--large {
+    width: min(90%, 1200px);
+  }
+
+  &--small {
+    width: min(90%, 1000px);
+  }
+}
+
+.common-padding {
+  padding: min(15vw, 100px) 0;
+}
+
+.common-btm-padding {
+  padding: 0 0 min(15vw, 100px);
+}
+
+.u-border {
+  text-decoration: underline;
+}
+
+/*-----------------マージン--------------------*/
+.m-center {
+  display: block;
+  margin: 0 auto;
+}
+
+.m-left-auto {
+  display: block;
+  margin-left: auto;
+}
+
+.m-right-auto {
+  display: block;
+  margin-right: auto;
+}
+
+.mt-05em {
+  margin-top: 0.5em;
+}
+
+.mt-1em {
+  margin-top: 1em;
+}
+
+.mt-2em {
+  margin-top: 2em;
+}
+
+.mt-4em {
+  margin-top: 4em;
+}
+
+/*-----------------フォントウェイト--------------------*/
+.f-thin {
+  font-weight: 100;
+}
+
+.f-light {
+  font-weight: 300;
+}
+
+.f-regular {
+  font-weight: var(--f_regular);
+}
+
+.f-medium {
+  font-weight: var(--f_medium);
+}
+
+.f-bold {
+  font-weight: var(--f_bold);
+}
+
+.f-w-black {
+  font-weight: var(--f_black);
+}
+
+.poppins-exlight-italic {
+  font-family: "Poppins", serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+/*-----------------フォント色--------------------*/
+.f-white {
+  color: var(--white);
+}
+
+.f-red {
+  color: var(--red);
+}
+
+.f-blue {
+  color: var(--blue);
+}
+
+.f-brown {
+  color: var(--brown);
+}
+
+/*-----------------背景色--------------------*/
+.bg-brown {
+  background-color: var(--brown);
+}
+
+.bg-brown-thin {
+  background-color: var(--brown_thin);
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
+/*-----------------フォント--------------------*/
+.poppins {
+  font-family: "Poppins", serif;
+  font-style: normal;
+}
+
+.zen {
+  font-family: "Zen Antique", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/*-----------------画像--------------------*/
+img.fit-cover {
+  object-fit: cover;
+}
+
+img.fit-contain {
+  object-fit: contain;
+}
+
+picture,
+figure img {
+  width: 100%;
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+img.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.img-dummy {
+  height: 500px;
+  background-color: #d9d9d9;
+  border: solid 1px #00000f;
+
+  @include l.mq(sp) {
+    height: l.rem(300);
+  }
+}
+
+/*-----------------flex--------------------*/
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.flex.nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex.right {
+  justify-content: flex-end;
+}
+
+.flex.center {
+  justify-content: center;
+}
+
+.flex.left {
+  justify-content: flex-start;
+}
+
+.flex.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.al-center {
+  align-items: center;
+}
+
+.al-top {
+  align-items: flex-start;
+}
+
+.al-bottom {
+  align-items: flex-end;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-start;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+
+  @include l.mq(sp) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.v-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*-----------------Link--------------------*/
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    opacity: 0.7;
+
+    @include l.mq(sp) {
+      opacity: 1;
+    }
+  }
+
+  &.hov-underline {
+    &:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+}
+
+/*----------------文字揃え---------------------*/
+.txt-c {
+  text-align: center;
+}
+
+.txt-l {
+  text-align: left;
+}
+
+.txt-r {
+  text-align: right;
+}
+
+.txt-c-l {
+  text-align: center;
+
+  @include l.mq(sp) {
+    text-align: left;
+  }
+}
+
+/*----------------ポジション---------------------*/
+.relative {
+  position: relative;
+}
+
+.position-c {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*----------------リスト---------------------*/
+ul.indent {
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+}
+
+ul.basic {
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+
+    &::before {
+      content: "・";
+      margin-right: 10px;
+
+      @include l.mq(sp) {
+        margin-right: 2vw;
+      }
+    }
+  }
+}
+
+ol {
+  font-size: 15px;
+
+  @include l.mq(sp) {
+    font-size: 3.3vw;
+  }
+
+  li {
+    padding-left: 1em;
+    text-indent: -1.6em;
+    list-style-type: none;
+    counter-increment: cnt;
+
+    &::before {
+      content: counter(cnt) ".";
+      margin-right: 10px;
+    }
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 15px;
+
+    @include l.mq(sp) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+ol.alpfa {
+  font-size: 15px;
+
+  li {
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+    counter-increment: cnt;
+
+    &::before {
+      content: counter(cnt, lower-alpha) ")";
+      margin-right: 5px;
+      font-weight: var(--f_medium);
+    }
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 13px;
+  }
+}
+
+/*----------------テーブル---------------------*/
+table.basic {
+  width: 100%;
+
+  th,
+  td {
+    padding: min(3vw, 16px);
+    line-height: 1.7;
+
+    @include l.mq(sp) {
+      display: block;
+    }
+  }
+
+  th {
+    font-weight: 600;
+    vertical-align: middle;
+    color: var(--white);
+    background-color: var(--brown);
+    border-top: solid 1px var(--white);
+    border-bottom: solid 1px var(--white);
+
+    @include l.mq(sp) {
+      border: 0;
+    }
+  }
+
+  td {
+    border-top: solid 1px var(--brown);
+    border-bottom: solid 1px var(--brown);
+  }
+}
+
+/*-------------フェードインアニメーション-----------------*/
+.fadeIn {
+  opacity: 0;
+  transition-delay: 250ms;
+  transition-duration: 1000ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.23, 0.76, 0.73, 0.97);
+}
+
+.fadeIn-up {
+  transform: translate(0, 50px);
+}
+
+.fadeIn-down {
+  transform: translate(0, -80px);
+}
+
+.fadeIn-left {
+  transform: translate(-50px, 0);
+}
+
+.fadeIn-right {
+  transform: translate(50px, 0);
+}
+
+.scroll-in {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/*-------------スライドインアニメーション-----------------*/
+.slideIn {
+  opacity: 0;
+  transition-delay: 0ms;
+  transition-duration: 1000ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.23, 0.76, 0.73, 0.97);
+}
+
+.slideIn-up {
+  opacity: 1;
+  transform: translate(0, 80px);
+}
+
+.slideIn-down {
+  opacity: 1;
+  transform: translate(0, -80px);
+}
+
+.slideIn-left {
+  opacity: 1;
+  transform: translate(-80px, 0);
+}
+
+.slideIn-right {
+  opacity: 1;
+  transform: translate(80px, 0);
+}
+
+.scroll-in {
+  opacity: 1;
+  transform: translate(0);
+}

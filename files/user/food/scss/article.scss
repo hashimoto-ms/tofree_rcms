@@ -1,0 +1,153 @@
+@use "lib/lib" as l;
+@use "common";
+@use "parts";
+/*-----------------article-mv--------------------*/
+.article-mv {
+  padding: min(30vw, 175px) 0 min(13vw, 80px);
+
+  &__ttl-area {
+    margin: max(-6vw, -50px) 0 min(10vw, 50px);
+  }
+
+  &__ttl {
+    font-size: min(11vw, 72px);
+    line-height: 1.2;
+    text-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.3);
+  }
+
+  &__sub-ttl {
+    font-size: min(5vw, 32px);
+    line-height: 1.2;
+  }
+}
+
+/*-----------------article-list--------------------*/
+.article-list {
+  --card-row-gap: min(2vw, 30px);
+  --card-width: calc(100% / 3);
+
+  @include l.mq(smtab) {
+    --card-width: calc(100% / 2);
+  }
+  @include l.mq(sp) {
+    --card-width: calc(100% / 1);
+  }
+
+  &__ttl {
+    font-size: min(6.5vw, 24px);
+    margin-bottom: min(7vw, 35px);
+  }
+
+  &__card-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px var(--card-row-gap);
+
+    @include l.mq(sp) {
+      gap: 5vw var(--card-row-gap);
+    }
+
+    &::after {
+      content: "";
+      width: calc(var(--card-width) - var(--card-row-gap));
+    }
+  }
+
+  &__card {
+    width: calc(var(--card-width) - var(--card-row-gap));
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba($color: #000000, $alpha: 0.1);
+
+    a {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__card.new {
+    position: relative;
+
+    &::before {
+      content: "NEW";
+      display: inline-block;
+      font-weight: 600;
+      border-radius: 10px 0 0 0;
+      padding: min(8px) min(16px);
+      color: var(--white);
+      background-color: var(--brown);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__card-txt-box {
+    position: relative;
+    height: 100%;
+    padding: min(5vw, 20px) min(5vw, 24px);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 27px;
+      height: 8px;
+      background: url(/food/assets/img/common/article_arw.jpg) no-repeat
+        center/contain;
+      position: absolute;
+      bottom: 23px;
+      right: 22px;
+    }
+  }
+
+  &__company-name {
+    font-size: min(3.5vw, 15px);
+  }
+
+  &__solution-wrap {
+    font-size: min(3.2vw, 13px);
+    margin: 8px 0 min(5vw, 20px);
+  }
+
+  &__solution-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    gap: 4px 12px;
+
+    li::before {
+      content: "・";
+    }
+  }
+
+  &__card-ttl {
+    font-size: min(4.5vw, 18px);
+  }
+
+  &__card-time {
+    display: block;
+    margin-top: min(4vw, 20px);
+    font-size: min(3.3vw, 13px);
+  }
+}
+
+/*-----------------article-cta--------------------*/
+.article-cta {
+  padding: 0 0 min(25vw, 100px);
+}

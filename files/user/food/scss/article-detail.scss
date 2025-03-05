@@ -1,0 +1,461 @@
+@use "lib/lib" as l;
+@use "common";
+@use "parts";
+
+/*-----------------articleDetail-hero--------------------*/
+.articleDetail-hero {
+  padding: min(10vw, 80px) 0;
+
+  &__ttl {
+    font-size: min(13vw, 90px);
+    line-height: 1.2;
+  }
+}
+
+/*-----------------articleDetail-contents--------------------*/
+.articleDetail-contents {
+  // common
+  &__box {
+    border: solid 2px var(--brown);
+    border-radius: 10px;
+    padding: min(10vw, 50px) min(6vw, 80px) min(7vw, 50px);
+  }
+
+  &__box-ttl {
+    width: max-content;
+    max-width: 100%;
+    font-size: min(4.5vw, 24px);
+    padding: 5px min(10vw, 52px);
+    border-radius: 10px;
+    position: absolute;
+    top: -1em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // ttl-area
+  &__article-ttl {
+    font-size: min(6vw, 40px);
+    padding-bottom: min(3.5vw, 16px);
+    border-bottom: solid 1px var(--border-gray);
+  }
+
+  &__ttl-name {
+    display: block;
+    font-size: min(3.8vw, 20px);
+    margin-top: min(3.8vw, 20px);
+  }
+
+  &__service {
+    font-size: min(4vw, 24px);
+    margin-top: min(3.6vw, 18px);
+  }
+
+  &__service-lead {
+    font-size: min(3.8vw, 20px);
+  }
+  // top-img
+  &__top-img {
+    margin: min(5vw, 30px) 0 min(14vw, 70px);
+  }
+
+  &__lead {
+    font-size: min(4vw, 24px);
+    margin-bottom: min(14vw, 90px);
+
+    p:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+  // case-area
+  &__case-lead {
+    line-height: 1.8;
+  }
+
+  &__case-table {
+    margin-top: min(5vw, 30px);
+  }
+
+  &__index-list {
+    li {
+      position: relative;
+      line-height: 1.7;
+      padding-left: 2em;
+      text-indent: -2em;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: min(4vw, 16px);
+        margin-right: 10px;
+        height: 1px;
+        border-radius: 30px;
+        background-color: var(--black);
+      }
+
+      &::after {
+        content: ">";
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: calc(2em + 10px);
+
+        @include l.mq(sp) {
+          position: absolute;
+          top: 50%;
+          right: -8%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+  // contents
+  &__contents {
+    margin-top: min(16vw, 120px);
+  }
+
+  &__contents-ttl {
+    font-size: min(6vw, 32px);
+    font-weight: var(--f_bold);
+    margin: min(15vw, 100px) 0 min(6vw, 32px);
+    border-left: solid 5px var(--brown);
+    padding-left: min(4vw, 24px);
+  }
+
+  &__contents-inner-ttl {
+    font-size: min(4.5vw, 24px);
+    font-weight: var(--f_bold);
+    margin: min(6vw, 48px) 0 min(3.8vw, 20px);
+    padding-left: min(5.5vw, 38px);
+    position: relative;
+
+    &:first-child {
+      margin: 0 0 min(3.8vw, 20px);
+    }
+
+    & + .articleDetail-contents__contents-flex {
+      margin-top: 0;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: min(4vw, 24px);
+      height: 2px;
+      border-radius: 30px;
+      background-color: var(--black);
+      position: absolute;
+      top: min(3vw, 19px);
+      left: 0;
+    }
+  }
+
+  .full-img {
+    width: 100%;
+    margin: 1.5em 0;
+  }
+
+  &__contents-txt {
+    line-height: 2;
+    margin: 0 0 1.5em;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    color: var(--red);
+    text-decoration: underline;
+  }
+
+  &__list {
+    margin: 1em 0;
+  }
+
+  &__list li {
+    text-indent: -1.3em;
+    padding-left: 1.3em;
+    line-height: 1.9;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50px;
+      background-color: var(--black);
+      vertical-align: middle;
+      margin-right: 1em;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    margin: 2em 0;
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: 1px solid var(--border-gray);
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+
+      &:first-child {
+        width: 40%;
+      }
+    }
+  }
+
+  &__inner-ctr {
+    margin-top: 2em;
+
+    h6 {
+      margin: 1.5em 0 0;
+    }
+  }
+
+  &__inner-ctr-ttl {
+    font-size: min(3.9vw, 22px);
+    font-weight: 500;
+    margin-bottom: 0.5em;
+  }
+
+  &__contents-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: min(6vw, 48px);
+    gap: min(7vw, 50px);
+
+    @include l.mq(sp) {
+      flex-direction: column;
+    }
+
+    &.al-center {
+      align-items: center;
+    }
+    
+    & + p {
+      margin: 1.5em 0 1.5em;
+    }
+  }
+
+  &__contents-flexitem-30 {
+    width: 30%;
+
+    @include l.mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__contents-flexitem-50 {
+    width: 50%;
+
+    @include l.mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__contents-flexitem-70 {
+    width: 70%;
+
+    @include l.mq(sp) {
+      width: 100%;
+    }
+  }
+
+  // voice
+  &__voice {
+    margin-top: min(17vw, 150px);
+  }
+
+  &__voice-name {
+    font-size: min(4vw, 20px);
+    margin-bottom: min(3.5vw, 16px);
+  }
+  // user
+  &__solution {
+    padding: min(10vw, 88px) min(5vw, 80px) min(7vw, 88px);
+    margin-top: min(17vw, 100px);
+
+    .articleDetail-contents__box-ttl {
+      top: -1em;
+      font-size: min(3.8vw, 24px);
+
+      @include l.mq(sp) {
+        top: -1.8em;
+      }
+    }
+  }
+
+  &__solution-lead {
+    font-size: min(3.5vw, 24px);
+  }
+
+  &__solution-ttl {
+    font-size: min(13vw, 100px);
+    line-height: 1;
+    margin: 10px 0 15px;
+  }
+
+  &__solution-sub-ttl {
+    font-size: min(3.5vw, 14px);
+  }
+
+  &__solution-product {
+    width: 200px;
+    position: absolute;
+    bottom: 55%;
+    right: 10%;
+
+    @media screen and (max-width: 1260px) {
+      width: 15vw;
+    }
+
+    @include l.mq(sp) {
+      width: 20vw;
+      right: 4%;
+      bottom: 85%;
+    }
+  }
+
+  &__solution-ctr {
+    padding: min(6vw, 54px) min(5vw, 87px);
+    margin: min(5vw, 50px) 0 min(8vw, 70px);
+  }
+
+  &__solution-ctr-txt-wrap {
+    width: min(68%, 680px);
+
+    @include l.mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__solution-ctr-ttl {
+    font-size: min(3.8vw, 24px);
+
+    @include l.mq(sp) {
+      width: 68%;
+    }
+  }
+
+  &__solution-ctr-lead {
+    margin: min(5vw, 30px) 0 min(8.5vw, 40px);
+    font-size: min(3.2vw, 16px);
+  }
+
+  &__solution-ctr-list {
+    display: flex;
+    justify-content: center;
+    gap: min(4vw, 30px);
+    margin-top: min(8vw, 50px);
+
+    @include l.mq(sp) {
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      &::after {
+        content: "";
+        width: 43%;
+      }
+    }
+  }
+
+  &__solution-ctr-item {
+    width: 283px;
+
+    @include l.mq(sp) {
+      width: 40%;
+      font-size: 3.2vw;
+    }
+  }
+
+  // この記事に興味をお持ちの方へオススメの飲食DXソリューション
+  &__user {
+    margin-top: min(16vw, 100px);
+    padding: min(5vw, 80px);
+    border: solid min(4vw, 20px) #f0e4cd;
+  }
+
+  &__user-ttl {
+    font-size: min(4vw, 20px);
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: min(6vw, 70px);
+  }
+
+  &__user-top-area {
+    display: flex;
+    gap: min(5vw, 30px);
+    margin-bottom: min(8vw, 50px);
+
+    @include l.mq(sp) {
+      flex-direction: column;
+    }
+  }
+
+  &__user-img {
+    width: 58%;
+
+    @include l.mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__user-txt-wrap {
+    width: 40%;
+
+    @include l.mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__user-name {
+    font-size: min(4vw, 20px);
+    margin-bottom: min(3vw, 30px);
+  }
+
+  &__user-txt {
+    line-height: 1.8;
+  }
+
+  &__user-btm-area {
+    align-items: flex-start;
+    display: flex;
+    gap: min(7vw, 50px);
+
+    @include l.mq(sp) {
+      flex-direction: column;
+    }
+  }
+
+  &__user-table.basic,
+  &__user-img2-wrap {
+    @include l.mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__user-table {
+    th {
+      width: 30%;
+
+      @include l.mq(sp) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__btm-btn-wrap {
+    margin-top: min(17vw, 150px);
+  }
+}
