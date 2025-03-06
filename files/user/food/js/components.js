@@ -99,6 +99,11 @@ ReactDOM.createRoot(document.querySelector(".header")).render(<Header />);
 
 const Footer = () => {
   const [bottomOffset, setBottomOffset] = React.useState(0);
+  const [buttonStyle, setButtonStyle] = React.useState({
+    position: "fixed",
+    bottom: `${10 + bottomOffset}px`,
+    right: "50px",
+  });
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -122,6 +127,28 @@ const Footer = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  React.useEffect(() => {
+    const updateButtonStyle = () => {
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        setButtonStyle({
+          position: "fixed",
+          bottom: `${10 + bottomOffset}px`,
+          right: "10px",
+        });
+      } else {
+        setButtonStyle({
+          position: "fixed",
+          bottom: `${20 + bottomOffset}px`,
+          right: "20px",
+        });
+      }
+    };
+
+    updateButtonStyle();
+    window.addEventListener("resize", updateButtonStyle);
+    return () => window.removeEventListener("resize", updateButtonStyle);
+  }, [bottomOffset]);
 
   const returnTop = () => {
     window.scrollTo({
@@ -207,10 +234,7 @@ const Footer = () => {
       <button
         className="footer__topback txt-c poppins f-light f-white"
         onClick={returnTop}
-        style={{
-          position: "fixed",
-          bottom: `${10 + bottomOffset}px`,
-        }}
+        style={buttonStyle}
       >
         PAGE
         <br />
