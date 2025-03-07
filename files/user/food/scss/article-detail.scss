@@ -283,7 +283,7 @@
   }
   // user
   &__solution {
-    padding: min(10vw, 88px) min(5vw, 80px) min(7vw, 88px);
+    padding: min(13vw, 75px) min(5vw, 80px) min(7vw, 88px);
     margin-top: min(17vw, 100px);
 
     .articleDetail-contents__box-ttl {
@@ -296,14 +296,24 @@
     }
   }
 
+  &__solution-ttl-wrap {
+    position: relative;
+    padding-left: min(7vw, 50px);
+
+    &.kiosk {
+      padding-right: min(33vw, 340px);
+    }
+  }
+
   &__solution-lead {
     font-size: min(3.5vw, 24px);
+    word-break: auto-phrase;
   }
 
   &__solution-ttl {
-    font-size: min(13vw, 100px);
+    font-size: min(11vw, 80px);
     line-height: 1;
-    margin: 10px 0 15px;
+    margin: min(2vw, 10px) 0 min(2.5vw, 15px);
   }
 
   &__solution-sub-ttl {
@@ -311,53 +321,51 @@
   }
 
   &__solution-product {
-    width: 200px;
     position: absolute;
-    bottom: 55%;
-    right: 10%;
+    z-index: 10;
 
-    @media screen and (max-width: 1260px) {
-      width: 15vw;
-    }
-
-    @include l.mq(sp) {
-      width: 20vw;
+    &.kiosk {
+      width: min(28vw, 280px);
+      top: 10%;
       right: 4%;
-      bottom: 85%;
+
+      @include l.mq(sp) {
+        width: 25vw;
+      }
     }
   }
 
   &__solution-ctr {
-    padding: min(6vw, 54px) min(5vw, 87px);
-    margin: min(5vw, 50px) 0 min(8vw, 70px);
+    padding: min(8vw, 35px) min(7vw, 50px);
+    margin: min(5vw, 36px) 0 min(8vw, 55px);
   }
 
   &__solution-ctr-txt-wrap {
     width: min(68%, 680px);
 
+    @media screen and (max-width: 924px) {
+      width: 100%;
+    }
     @include l.mq(sp) {
       width: 100%;
     }
   }
 
   &__solution-ctr-ttl {
-    font-size: min(3.8vw, 24px);
-
-    @include l.mq(sp) {
-      width: 68%;
-    }
+    font-size: min(3.8vw, 20px);
+    word-break: auto-phrase;
   }
 
   &__solution-ctr-lead {
-    margin: min(5vw, 30px) 0 min(8.5vw, 40px);
+    margin: min(5vw, 20px) 0;
     font-size: min(3.2vw, 16px);
   }
 
   &__solution-ctr-list {
     display: flex;
     justify-content: center;
-    gap: min(4vw, 30px);
-    margin-top: min(8vw, 50px);
+    gap: min(2vw, 30px) min(4vw, 30px);
+    margin-top: min(8vw, 40px);
 
     @include l.mq(sp) {
       justify-content: space-evenly;
@@ -371,12 +379,17 @@
   }
 
   &__solution-ctr-item {
-    width: 283px;
+    width: 210px;
 
     @include l.mq(sp) {
       width: 40%;
       font-size: 3.2vw;
     }
+  }
+
+  &__solution-ctr-txt {
+    font-size: min(2.8vw, 14px);
+    margin-top: min(3vw, 16px);
   }
 
   // この記事に興味をお持ちの方へオススメの飲食DXソリューション
