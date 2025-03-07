@@ -332,8 +332,7 @@
 
   &__ctr {
     width: 465px;
-    border: solid min(3vw, 25px) #f0e4cd;
-    padding: min(7vw, 50px) min(6vw, 48px);
+    padding: min(7vw, 30px) min(6vw, 48px);
 
     @include l.mq(smtab) {
       width: 100%;
@@ -341,6 +340,8 @@
 
     &:first-of-type {
       padding-right: 100px;
+      border-radius: 20px 0 0 20px;
+      background-color: #c7b18a;
 
       @include l.mq(smtab) {
         padding-right: min(6vw, 48px);
@@ -349,6 +350,8 @@
 
     &:last-of-type {
       padding-left: 100px;
+      border-radius: 0 20px 20px 0;
+      background-color: #b3b3b3;
 
       @include l.mq(smtab) {
         padding-left: min(6vw, 48px);
@@ -357,25 +360,23 @@
   }
 
   &__ttl {
-    font-size: min(5vw, 24px);
+    color: #fff;
+    font-size: min(5vw, 34px);
     margin-bottom: min(3vw, 18px);
+
+    small {
+      font-size: min(3.8vw, 18px);
+      vertical-align: middle;
+      margin-left: 5px;
+    }
   }
 
   &__item {
     font-size: min(3.8vw, 16px);
-    padding-left: 1em;
-    text-indent: -1em;
-    position: relative;
-
-    &::before {
-      content: "";
-      display: inline-block;
-      width: 15px;
-      height: 1px;
-      background-color: var(--black);
-      vertical-align: middle;
-      margin-right: 5px;
-    }
+    font-weight: 500;
+    padding: min(7vw, 30px) min(3.8vw, 20px);
+    background-color: #fff;
+    border-radius: 20px;
   }
 
   &__item:not(:last-child) {
