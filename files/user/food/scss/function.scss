@@ -322,7 +322,8 @@
 /*-----------------service-merit--------------------*/
 .service-merit {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   gap: 70px;
   position: relative;
 
@@ -331,112 +332,143 @@
   }
 
   &__ctr {
-    width: 465px;
-    padding: min(7vw, 30px) min(6vw, 48px);
+    width: 423px;
+    padding: min(7vw, 30px) min(6vw, 30px);
 
     @include l.mq(smtab) {
       width: 100%;
     }
 
     &:first-of-type {
-      padding-right: 100px;
+      padding-right: 60px;
       border-radius: 20px 0 0 20px;
       background-color: #c7b18a;
 
+      @media screen and (max-width: 1125px) {
+        padding-right: 7vw;
+      }
       @include l.mq(smtab) {
-        padding-right: min(6vw, 48px);
+        border-radius: 20px 20px 0 0;
+        padding-right: min(6vw, 30px);
+        padding-bottom: 50px;
+
+        .service-merit__ttl {
+          text-align: left;
+        }
+      }
+      @include l.mq(sp) {
+        padding-bottom: 12vw;
       }
     }
 
     &:last-of-type {
-      padding-left: 100px;
+      padding-left: 60px;
       border-radius: 0 20px 20px 0;
       background-color: #b3b3b3;
 
+      @media screen and (max-width: 1125px) {
+        padding-left: 7vw;
+      }
       @include l.mq(smtab) {
+        border-radius: 0 0 20px 20px;
         padding-left: min(6vw, 48px);
+        padding-top: 50px;
+
+        .service-merit__item {
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+        }
+      }
+      @include l.mq(sp) {
+        padding-top: 10vw;
       }
     }
   }
 
   &__ttl {
     color: #fff;
-    font-size: min(5vw, 34px);
-    margin-bottom: min(3vw, 18px);
+    font-size: min(6vw, 30px);
+    margin-bottom: min(3vw, 12px);
+    letter-spacing: 0.02em;
 
     small {
-      font-size: min(3.8vw, 18px);
+      font-size: min(4vw, 18px);
       vertical-align: middle;
       margin-left: 5px;
     }
   }
 
   &__item {
-    font-size: min(3.8vw, 16px);
+    display: flex;
+    gap: 6%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: min(3.4vw, 15px);
     font-weight: 500;
-    padding: min(7vw, 30px) min(3.8vw, 20px);
+    padding: min(7vw, 20px) min(3.8vw, 28px);
     background-color: #fff;
     border-radius: 20px;
+
+    @include l.mq(smtab) {
+      justify-content: flex-start;
+    }
+    @include l.mq(sp) {
+      border-radius: 5vw 2vw;
+    }
   }
 
   &__item:not(:last-child) {
     margin-bottom: min(3vw, 1em);
   }
 
-  &::after,
-  &::before {
-    content: "";
-    display: block;
-    width: 348px;
-    aspect-ratio: 348 / 90;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  &__txt {
+    width: 70%;
 
+    @media screen and (max-width: 1125px) {
+      font-size: 15px;
+    }
     @include l.mq(smtab) {
-      width: 30vw;
+      width: 80%;
+      font-size: 3.5vw;
+    }
+    @include l.mq(sp) {
+      font-size: 3.8vw;
+    }
+
+    small {
+      font-size: 80%;
+      line-height: 1.2;
     }
   }
 
-  &::after {
-    background: url(/food/assets/img/common/merit_arw_top.png) no-repeat
-      center/contain;
-    top: -12%;
+  &__icon {
+    object-fit: contain;
+    width: 23%;
+    aspect-ratio: 63 / 80;
 
-    @include l.mq(smtab) {
-      top: 50%;
-      left: 81%;
-      transform: translate(-0%, -50%) rotate(90deg);
+    @media screen and (max-width: 1125px) {
+      width: 7vw;
     }
-  }
-
-  &::before {
-    background: url(/food/assets/img/common/merit_arw_btm.png) no-repeat
-      center/contain;
-    bottom: -12%;
-
     @include l.mq(smtab) {
-      top: 50%;
-      left: auto;
-      right: 66%;
-      transform: translate(-50%, -50%) rotate(90deg);
+      width: 10vw;
     }
   }
 
   &__img {
-    position: absolute;
-    top: 50%;
-    left: 49%;
-    transform: translate(-50%, -50%);
+    width: 245px;
+    margin: 0 -120px;
+    position: relative;
 
-    @media screen and (max-width: 1045px) {
+    @media screen and (max-width: 1125px) {
       width: 23vw;
     }
-    @media screen and (max-width: 995px) {
-      left: 50%;
+    @include l.mq(smtab) {
+      margin: -120px 0;
+      width: 30vw;
     }
     @include l.mq(sp) {
-      width: 36vw;
+      margin: -23vw 0 -25vw;
+      width: 40vw;
     }
   }
 }
