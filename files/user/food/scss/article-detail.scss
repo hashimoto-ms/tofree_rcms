@@ -286,6 +286,10 @@
     padding: min(13vw, 75px) min(5vw, 80px) min(7vw, 88px);
     margin-top: min(17vw, 100px);
 
+    @media screen and (max-width: 856px) {
+      padding: 13vw min(5vw, 80px) min(7vw, 88px);
+    }
+
     .articleDetail-contents__box-ttl {
       top: -1em;
       font-size: min(3.8vw, 24px);
@@ -303,6 +307,10 @@
     &.kiosk {
       padding-right: min(33vw, 340px);
     }
+
+    &.tls {
+      padding-right: min(27vw, 340px);
+    }
   }
 
   &__solution-lead {
@@ -314,6 +322,18 @@
     font-size: min(11vw, 80px);
     line-height: 1;
     margin: min(2vw, 10px) 0 min(2.5vw, 15px);
+
+    &.odertable {
+      line-height: 0;
+    }
+
+    &.drivethrough {
+      font-size: min(9.5vw, 80px);
+    }
+
+    &.tls {
+      font-size: min(10vw, 80px);
+    }
   }
 
   &__solution-sub-ttl {
@@ -333,6 +353,44 @@
         width: 25vw;
       }
     }
+
+    &.odertable {
+      width: min(22vw, 216px);
+      top: 10%;
+      right: 4%;
+
+      @include l.mq(sp) {
+        width: 21vw;
+        top: -3%;
+        right: 7%;
+      }
+    }
+
+    &.drivethrough {
+      width: min(28vw, 310px);
+      top: 10%;
+      right: 4%;
+
+      @include l.mq(sp) {
+        width: 27vw;
+        top: 19%;
+        right: 1%;
+      }
+    }
+
+    &.tls {
+      width: min(35vw, 360px);
+      top: 3%;
+      right: 0%;
+
+      @include l.mq(tab) {
+        right: -3%;
+      }
+      @include l.mq(sp) {
+        width: 33vw;
+        right: -5%;
+      }
+    }
   }
 
   &__solution-ctr {
@@ -343,9 +401,6 @@
   &__solution-ctr-txt-wrap {
     width: min(68%, 680px);
 
-    @media screen and (max-width: 924px) {
-      width: 100%;
-    }
     @include l.mq(sp) {
       width: 100%;
     }
