@@ -228,7 +228,7 @@ const Footer = () => {
       </p>
       <div className="footer__copy-wrap">
         <p className="footer__copy txt-c f-white">
-          <small>© 2000-2024 GLORY LTD.</small>
+          <small>© 2000-2025 GLORY LTD.</small>
         </p>
       </div>
       <button
